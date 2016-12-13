@@ -1,82 +1,102 @@
 <h1>Add Profile</h1>
-<form>
+<form novalidate ng-class="{'form-submit':profile.formSubmit}">
 	<section class="edit-profile">
 		<aside class="col-md-3 left-section">
-			<img-upload model="profile.form."></img-upload>
+			<img-upload model="profile.form.profile_image"></img-upload>
 		</aside>
 		<aside class="col-md-1 line"></aside>
 		<aside class="col-md-8 right-section">
 			<article>
 				<section class="form-group clearfix">
-					<label class="col-md-2" for="name">
+					<label class="col-md-4" for="name">
 						Name:
 					</label>
-					<section class="col-md-5">
-						<input type="text" required  class="form-control" placeholder="First Name" name="name">
+					<section class="col-md-4">
+						<input type="text" required ng-model="profile.form.first_name" class="form-control" placeholder="First Name" name="name">
 					</section>
-					<section class="col-md-5">
-						<input type="text" required  class="form-control" placeholder="Last Name">
+					<section class="col-md-4">
+						<input type="text" required ng-model="profile.form.last_name"  class="form-control" placeholder="Last Name">
 					</section>
 				</section>
 				<section class="form-group clearfix">
-					<label class="col-md-2" for="email">
+					<label class="col-md-4" for="email">
 						Email:
 					</label>
-					<section class="col-md-10">
-						<input type="email" required  class="form-control" placeholder="sample@123.com" name="email">
+					<section class="col-md-8">
+						<input type="email" required ng-model="profile.form.email" class="form-control" placeholder="sample@123.com" name="email">
 					</section>
 				</section>
 				<section class="form-group clearfix">
-					<label class="col-md-2" for="tel">
+					<label class="col-md-4" for="tel">
 						Tel:
 					</label>
-					<section class="col-md-10">
-						<input type="tel"  required class="form-control" placeholder="(212)477-1000" name="tel">
+					<section class="col-md-8">
+						<input type="tel" ng-model="profile.form.telephone"  required class="form-control" placeholder="(212)477-1000" name="tel">
 					</section>
 				</section>
 				<section class="form-group clearfix">
-					<label class="col-md-2" for="tel">
+					<label class="col-md-4" for="tel">
 						Country:
 					</label>
-					<section class="col-md-10">
-						<select class="form-control" required>
+					<section class="col-md-8">
+						<select class="form-control" required ng-model="profile.form.country">
 							<option value="">Select</option>
+							<option value="{{country.country_id}}" ng-repeat="country in profile.formData.country">{{country.name}}</option>
 						</select>
 					</section>
 				</section>
 				<section class="form-group clearfix">
-					<label class="col-md-2" for="tel">
+					<label class="col-md-4" for="tel">
 						State:
 					</label>
-					<section class="col-md-10">
-						<select class="form-control" required>
+					<section class="col-md-8">
+						<select class="form-control" required ng-model="profile.form.state">
 							<option value="">Select</option>
+							<option value="{{state.state_id}}" ng-repeat="state in profile.formData.states|filter:{ country_id : profile.form.country }">{{state.name}}</option>
 						</select>
 					</section>
 				</section>
 				<section class="form-group clearfix">
-					<label class="col-md-2" for="tel">
+					<label class="col-md-4" for="tel">
 						Address:
 					</label>
-					<section class="col-md-10">
-						<select class="form-control" required>
+					<section class="col-md-8">
+						<select class="form-control" required ng-model="profile.address">
 							<option value="">Select</option>
+							<option value="{{address.name}}" ng-repeat="address in profile.formData.address">{{address.name}}</option>
+							
 						</select>
 					</section>
 				</section>
-				<section class="form-group clearfix">
-					<label class="col-md-2" for="interst">
-						Interest:
+				<section class="form-group clearfix" ng-if="profile.address">
+					<label class="col-md-4" for="tel">
+						Address 1:
 					</label>
-					<section class="col-md-10">
-						<input type="tel" required class="form-control" placeholder="hobby1,hobby2,hobby3" name="interst">
+					<section class="col-md-8">
+						<textarea class="form-control" placeholder="{{profile.address == 'Home' ? 'Home Address 1' : 'Company Address 1'  }}" required ng-model="profile.form.comp_address1"></textarea>
+					</section>
+				</section>
+				<section class="form-group clearfix" ng-if="profile.address">
+					<label class="col-md-4" for="tel">
+						Address 2:
+					</label>
+					<section class="col-md-8">
+						<textarea class="form-control" placeholder="{{profile.address == 'Home' ? 'Home Address 2' : 'Company Address 2'  }}" required ng-model="profile.form.comp_address2"></textarea>
 					</section>
 				</section>
 				<section class="form-group clearfix">
-					<label class="col-md-2" for="interst">
+					<label class="col-md-4" for="interst">
+						Interest:
+					</label>
+					<section class="col-md-8">
+						<input type="tel" required ng-model="profile.form.interest" class="form-control" placeholder="hobby1,hobby2,hobby3" name="interst">
+					</section>
+				</section>
+				<section class="form-group clearfix">
+					<label class="col-md-4" for="interst">
 						
 					</label>
-					<ul class="col-md-10 hobby-section">
+					<ul class="col-md-8 hobby-section">
 						<li>hobby<span class="close-btn" aria-hidden="true">×</span></li>
 						<li>hobby<span class="close-btn" aria-hidden="true">×</span></li>
 						<li>hobby<span class="close-btn" aria-hidden="true">×</span></li>
@@ -85,7 +105,7 @@
 				</section>
 				<section class="form-group">
 					<section class="checkbox col-md-offset-2 col-md-10" required>
-						<label><input type="checkbox">Subscribe to News Letter</label>
+						<label><input type="checkbox" ng-model="profile.form.agree">Subscribe to News Letter</label>
 					</section>
 				</section>
 				<section class="form-group clearfix">

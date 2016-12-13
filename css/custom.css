@@ -50,3 +50,5 @@ body {
         body .container .edit-profile .right-section .hobby-section li .close-btn {
           float: right;
           margin-right: 6px; }
+    body .container .form-submit .ng-invalid {
+      border: solid	red 1px; }
