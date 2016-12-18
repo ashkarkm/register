@@ -1,5 +1,5 @@
 var common		=	angular.module('common',[]),
-	registerApp	=	angular.module('registerApp', ['ngRoute','common']);
+	registerApp	=	angular.module('registerApp', ['ngRoute','common','rzModule']);
 
 registerApp.constant('CONSTANTS',{
 	TEMPLATE_PATH		:	{
@@ -8,7 +8,8 @@ registerApp.constant('CONSTANTS',{
 		VIEW_PAGE			:	'templates/view/view-registration.html',
 		REGISTERD_PAGE		:	'templates/registerd/registerd-page.html',
 		NAVIGATION			:	'templates/common/navigation.html',
-		IMAGE_UPLOAD		:	'templates/edit-form/image-upload.html'
+		IMAGE_UPLOAD		:	'templates/edit-form/image-upload.html',
+		HOBY				:	'templates/edit-form/interest.html'
 	}
 });
 registerApp.config(['$routeProvider','CONSTANTS', function($route,CONSTANTS) {

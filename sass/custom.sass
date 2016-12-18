@@ -3,10 +3,7 @@ html, body, ul, ol
   padding	:	0
 body
 	width	:	100%
-	footer
-		bottom	:	0
-		position	:	relative
-		text-align	:	right
+	
 	.container
 		width	:	800px
 		margin	:	0	auto
@@ -24,16 +21,26 @@ body
 				padding	:	0
 			.left-section
 				height	:	500px
-				.btn
-					position	:	absolute
-					left	:	28px;
-					top	:	65px;
-					font-weight	:	900
+				.edit-pic
+					.btn
+						position	:	absolute
+						left	:	28px
+						top	:	65px
+						font-weight	:	900
+				.view-pic
+					.upload-button
+						left	: 0
+    					top	:	65px
+						font-weight	:	900
 				.file-upload
     			display	:	none
 				img
-					width	:	150px
+					width	:	100%
 					height	:	150px
+				.edit-prof
+					a
+						font-weight	: 900
+						margin-left	: 17px
 			.right-section
 				height	:	500px
 				.hobby-section
@@ -54,3 +61,5 @@ body
 		.form-submit
 			.ng-invalid
 				border	:	solid	red 1px
+				.rzslider
+					border	:	solid	red 1px

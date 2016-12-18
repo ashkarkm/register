@@ -4,10 +4,6 @@ html, body, ul, ol {
 
 body {
   width: 100%; }
-  body footer {
-    bottom: 0;
-    position: relative;
-    text-align: right; }
   body .container {
     width: 800px;
     margin: 0	auto; }
@@ -24,16 +20,23 @@ body {
       padding: 0; }
     body .container .edit-profile .left-section {
       height: 500px; }
-      body .container .edit-profile .left-section .btn {
+      body .container .edit-profile .left-section .edit-pic .btn {
         position: absolute;
         left: 28px;
         top: 65px;
         font-weight: 900; }
+      body .container .edit-profile .left-section .view-pic .upload-button {
+        left: 0;
+          left-top: 65px;
+        font-weight: 900; }
       body .container .edit-profile .left-section .file-upload {
         display: none; }
       body .container .edit-profile .left-section img {
-        width: 150px;
+        width: 100%;
         height: 150px; }
+      body .container .edit-profile .left-section .edit-prof a {
+        font-weight: 900;
+        margin-left: 17px; }
     body .container .edit-profile .right-section {
       height: 500px; }
       body .container .edit-profile .right-section .hobby-section li {
@@ -52,3 +55,5 @@ body {
           margin-right: 6px; }
     body .container .form-submit .ng-invalid {
       border: solid	red 1px; }
+      body .container .form-submit .ng-invalid .rzslider {
+        border: solid	red 1px; }
